@@ -8,12 +8,22 @@ class Follower(models.Model):
     class Meta:
         db_table = 'follower'
 
-class Microblog(models.Model):
-    uid = models.PositiveIntegerField(db_index=True)
-    blog = models.CharField(max_length=2048)
+
+class BaseBlog(models.Model):
+    uid = models.PositiveIntegerField(help_text='Poster of the blog', db_index=True)
     post_time = models.DateTimeField(db_index=True)
-    poster = models.PositiveIntegerField(help_text='Poster of the blog', db_index=True)
+    blog = models.CharField(max_length=2048)
+    
+    class Meta:
+        abstract = True
+
+class Microblog(BaseBlog):
+    class Meta:
+        db_table = 'microblog'
+
+class Comment(BaseBlog):
+    comment_blog = models.ForeignKey(Microblog, on_delete=models.SET_NULL, null=True)
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True)
 
     class Meta:
-        db_table = 'microblog'
+        db_table = 'blog_comment'

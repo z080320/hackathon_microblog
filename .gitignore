@@ -2,3 +2,4 @@
 *.pyc
 *.sublime-*
 .DS_Store
+log/

@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblog</title>
+    <link rel="shortcut icon" href="http://cdn.garenanow.com/webmain/static/favicon.ico">
+
+    <link rel="stylesheet" href= "{% static "css/globe.css" %}">
+</head>
+
+<body>
+    {% block main %}
+    {% endblock main %}
+
+    <script src="http://cdn.garenanow.com/webupdate/games/sg/assets/js/jquery-2.1.3.min.js"></script>
+    <script src="{% static "js/application.js" %}"></script>
+</body>
+</html>
