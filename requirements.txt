@@ -1,0 +1,9 @@
+django==1.8
+djangorestframework>=3.1.1
+MySQL-python
+simplejson
+requests
+django-redis==3.8.3
+uwsgi
+svn+http://svn.garena.com/svn/python_libs/gto-django-extension/0.5/
+ipython
