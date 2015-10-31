@@ -14,6 +14,7 @@ def get_user_followers(uid):
 def get_followee_recent_blog(uid):
     followees = models.Follower.objects.filter(follower_uid=uid)
     follower_uids = [followee.uid for followee in followees]
+    follower_uids.append(uid) # Append self uid
 
     recent_blogs = models.Microblog.objects.filter(uid__in=follower_uids).order_by('-post_time')[:20]
     return recent_blogs
@@ -27,7 +28,7 @@ def post_microblog(uid, blog):
 def get_blog_comments(uid, blog_id):
     try:
         blog = models.Microblog.objects.get(pk=blog_id)
-        comments = models.Comment.objects.filter(comment_blog=blog).order_by('parent__pk')[:100]
+        comments = models.Comment.objects.filter(comment_blog=blog).order_by('parent__pk', '-post_time')[:100]
 
         return comments
 

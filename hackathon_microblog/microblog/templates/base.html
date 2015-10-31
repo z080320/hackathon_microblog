@@ -1,21 +1,271 @@
 {% load staticfiles %}
-
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microblog</title>
-    <link rel="shortcut icon" href="http://cdn.garenanow.com/webmain/static/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Gerena Gamer World</title>
+<!--<link href="styles/CustomerIndex.css" type="text/css" rel="stylesheet" />-->
+<!--<link href="styles/global.css" type="text/css" rel="stylesheet" />-->
+<link rel="shortcut icon" href="http://cdn.garenanow.com/webmain/static/favicon.ico">
 
-    <link rel="stylesheet" href= "{% static "css/globe.css" %}">
+<link href="{% static "styles/bootstrap.min1.css" %}" type="text/css" rel="stylesheet" />
+<link href="{% static "styles/mystyle.css" %}" type="text/css" rel="stylesheet" />
+<!-- <script language="javascript" src="script/CustomerIndex.js" ></script>
+<script language="javascript" src="script/trim.js" ></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <body>
-    {% block main %}
-    {% endblock main %}
+<!-- container start-->
 
-    <script src="http://cdn.garenanow.com/webupdate/games/sg/assets/js/jquery-2.1.3.min.js"></script>
+<!-- My NavBar-->
+<div>
+<div class="container content-container">
+<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Microblog</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a href="../default/">Default</a></li>
+                <li class="divider"></li>
+                <li><a href="../cerulean/">Cerulean</a></li>
+                <li><a href="../cosmo/">Cosmo</a></li>
+                <li><a href="../cyborg/">Cyborg</a></li>
+                <li><a href="../darkly/">Darkly</a></li>
+                <li><a href="../flatly/">Flatly</a></li>
+                <li><a href="../journal/">Journal</a></li>
+                <li><a href="../lumen/">Lumen</a></li>
+                <li><a href="../paper/">Paper</a></li>
+                <li><a href="../readable/">Readable</a></li>
+                <li><a href="../sandstone/">Sandstone</a></li>
+                <li><a href="../simplex/">Simplex</a></li>
+                <li><a href="../slate/">Slate</a></li>
+                <li><a href="../spacelab/">Spacelab</a></li>
+                <li><a href="../superhero/">Superhero</a></li>
+                <li><a href="../united/">United</a></li>
+                <li><a href="../yeti/">Yeti</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../help/">Help</a>
+            </li>
+            <li>
+              <a href="http://news.bootswatch.com">Blog</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Superhero <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li><a href="http://jsfiddle.net/bootswatch/9n4nxnqy/">Open Sandbox</a></li>
+                <li class="divider"></li>
+                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                <li><a href="./bootstrap.css">bootstrap.css</a></li>
+                <li class="divider"></li>
+                <li><a href="./variables.less">variables.less</a></li>
+                <li><a href="./bootswatch.less">bootswatch.less</a></li>
+                <li class="divider"></li>
+                <li><a href="./_variables.scss">_variables.scss</a></li>
+                <li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/garena_oauth/logout/">Log Out</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    
+  <!--- content mainDIV start-->
+  <div class="page-header">
+       
+       <!-- Main left Main left-->
+          <div class="col-lg-3 col-md-3 col-sm-4">
+            <div class="list-group table-of-contents">
+              <a class="list-group-item" href="#navbar">Navbar</a>
+              <a class="list-group-item" href="#buttons">Buttons</a>
+              <a class="list-group-item" href="#typography">Typography</a>
+              <a class="list-group-item" href="#tables">Tables</a>
+              <a class="list-group-item" href="#forms">Forms</a>
+              <a class="list-group-item" href="#navs">Navs</a>
+              <a class="list-group-item" href="#indicators">Indicators</a>
+              <a class="list-group-item" href="#progress-bars">Progress bars</a>
+              <a class="list-group-item" href="#containers">Containers</a>
+              <a class="list-group-item" href="#dialogs">Dialogs</a>
+            </div>
+          </div>
+
+    <!-- 左侧mainBannerDIV 开始 -->    
+    <div id="mainBanner">
+        {% block main_banner %}
+        {% endblock main_banner %}
+    </div>
+      <!-- 左侧mainBanner DIV 结束-->
+      <!-- 右侧mainRight DIV开始 -->
+  <div id="mainRight">
+          <table width="200" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <!-- 右侧mainRightPostionFirstLine DIV 开始 -->
+                        <div id="mainRightPostionFirstLine">
+                            <!-- 右侧mainRightPostionFirstLineIcon DIV 开始 -->
+                            <div style="height:58px;">
+                            <div id="mainRightPostionFirstLineIcon">
+                                <a href="MyWB.html"><img src="{% static "images/garena_avatar.png" %}" alt="" width="48" height="48" align="absmiddle" title="" border="0" /></a>
+                            </div>
+                            <!-- 右侧mainRightPostionFirstLineIcon DIV 结束 -->
+                            <!-- 右侧mainRightPostionFirstLineWord1 DIV 开始 -->
+                            <div id="mainRightPostionFirstLineWord1">                 
+                            &nbsp;<a href="MyWB.html" >{{ nickname }}</a><br/>
+                            &nbsp;Singapore
+                            </div>
+                            </div>
+                            <!-- 右侧mainRightPostionFirstLineWord1 DIV 结束 -->
+                            <!-- 右侧mainRightPostionFirstLineWord2 DIV 开始 -->
+                          <div id="mainRightPostionFirstLineWord2">
+                                <ul>
+                                    <a href="MyWB.html" class="a1"><li><font class="style1">2</font><br /><font class="style2">微博</font></li></a>
+                                    <a href="friend.html" class="a1"><li><font class="style1">12</font><br /><font class="style2">关注</font></li></a>
+                                    <a href="focusonyou.html" class="a1"><li><font class="style1">23</font><br /><font class="style2">粉丝</font></li></a>
+                                </ul>
+                           </div>
+                           <!-- 右侧mainRightPostionFirstLineWord2 DIV 结束 -->                    
+                        </div>
+                        <!-- 右侧mainRightPostionFirstLine DIV 结束 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>                    
+                        <!-- 右侧mainRightPostionSecondLine DIV 开始 -->
+                        <div id="mainRightPostionSecondLine">
+                            <!-- 右侧mainRightPositionSecondLineContent DIV 开始 -->
+                            <div id="mainRightPositionSecondLineContent">
+                                <a href="#" class="a1"><font style="font-size:16px;font-weight:700;">首页</font></a><br />
+                                <hr  zize="2" style="" />
+                                <a href="#" class="a1"><font class="style3">@我的</font></a>
+                                <hr class="h1">
+                                <a href="#" class="a1"><font class="style3">我的私信</font></a>
+                                <hr class="h1">
+                                <a href="#" class="a1"><font class="style3">转发</font></a>
+                                <hr class="h1">
+                                <a href="#" class="a1"><font class="style3">我的收藏</font></a>
+                            </div>
+                            <!-- 右侧mainRightPositionSecondLineContent DIV 开始 -->
+                        </div>
+                        <!-- 右侧mainRightPostionSecondLine DIV 结束 -->
+                    </td>
+                </tr>
+                <tr>
+                  <td>  
+                        <!-- 右侧mainRightPostionThirdLine DIV 开始 -->
+                        <div id="mainRightPostionThirdLine">
+                            <!-- 右侧mainRightPositionThirdLineContent DIV 开始 -->
+                            <div id="mainRightPositionThirdLineContent">
+                            <p><a href="#" onclick="" class="a1"><font class="style4">你可能感兴趣的人</font>
+                            <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a></p>
+                            <br />
+                            <div id="d32" style="float:right"><a href="#" class="a1">查看更多</a></div>
+                            </div>                      
+                            <!-- 右侧mainRightPositionThirdLineContent DIV 结束 --> 
+                        </div>
+                        <!-- 右侧mainRightPostionThirdLine DIV 开始 -->
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- 右侧mainRightPostionFourthLine DIV 开始 -->
+                        <div id="mainRightPostionFouthLine">
+                            <!-- 右侧mainRightPositionThirdLineContent DIV 结束 --> 
+                            <div id="mainRightPositionFourthLineContent">
+                            <form action="" method="get">
+                              <input type="text" name="textfield" id="textfield1"/>
+                              <a href="#"><img src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/></a>
+                            </form>
+                            <a href="#" onclick="" class="a1"><font class="style4">热门话题</font>
+                            <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>
+                            <ul id="ul2" style="line-height:25px;">
+                                <a href="#" class="a1"><li><font class="style2">动车(49585)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">高铁(48704)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">遇难者(10616)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">发言人(12875)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">铁道部(24488)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">暴雨(8914)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">伊伊(921</font>)</li></a>
+                                <a href="#" class="a1"><li><font class="style2">变形金刚(2908)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">味千拉面(450)</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">第三届网络原创歌曲大赛(27)</font></li></a>
+                            </ul>
+                            </div>
+                            <!-- 右侧mainRightPositionThirdLineContent DIV 结束 --> 
+                        </div>
+                        <!-- 右侧mainRightPostionFoutrhLine DIV 结束 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td> <!-- 右侧mainRightPostionFifthLine DIV 开始 -->
+                    <div id="mainRightPostionFifthLine">
+                        <div id="mainRightPositionFifthLineContent">
+                            <a href="#" onclick="" class="a1"><font class="style4">我关注的话题</font>
+                            <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>
+                        </div>
+                    </div>
+                    <!-- 右侧mainRightPostionFifthLine DIV 结束 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td><!-- 右侧mainRightPostionSixthLine DIV 开始 -->
+                    <div id="mainRightPostionSixthLine">
+                        <div id="mainRightPositionSixthLineContent">
+                            <a href="#" onclick="" class="a1"><font class="style4">我关注的</font>
+                            <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>
+                        </div>
+                        <ul>
+                            <a href="#" class="a1"><li><img src="images/WBXM.gif" border="0" /><br /><font class="style2">微博小秘</font></li></a>
+                            <a href="#" class="a1"><li><img src="images/AXXR.gif" border="0" /><br /><font class="style2">&nbsp;&nbsp;转&nbsp;&nbsp;发</font></li></a>
+                            <a href="#" class="a1"><li><img src="images/LBXR.gif" border="0" /><br /><font class="style2">微博新人</font></li></a>
+                        </ul>
+                    </div>
+                    <!-- 右侧mainRightPostionSixthLine DIV 结束 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td><!-- 右侧mainRightPostionSeventhLine DIV 开始 -->
+                    <div id="mainRightPostionSeventhLine">
+                        <div id="mainRightPositionSevenLineContent">
+                        灵步微博的成长，离不开你们。<br />
+                        <font class="style2"><a href="#" class="a1">有意见要提（点击） </a><br /><br />
+                        <a href="#" class="a1" onclick="set()" >不良信息举报中心</a></font> 
+                        </div>
+                    </div>
+                    <!-- 右侧mainRightPostionSeventhLine DIV 结束 -->
+                    </td>
+                </tr>
+          </table>
+     </div>
+      <!-- 右侧mainRightDiv 结束 -->
+  </div>
+    <!-- 回复DIV 开始 -->
+  <p id="backtop"><a id="backtop1" href="#totop"><span></span>Top</a></p>  <!-- content mainDIV end-->
+</div>
+<!-- footer部分 -->
+</div>
+<footer class="text-center footer">
+    Copyright © 2015 Hackthon GTO LZZ.<br> All Rights Reserved.
+</footer>
+    <!-- footer end -->
+
     <script src="{% static "js/application.js" %}"></script>
 </body>
 </html>

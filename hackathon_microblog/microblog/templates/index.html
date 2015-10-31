@@ -1,6 +1,156 @@
 {%extends "base.html" %}
 {% load staticfiles %}
 
-{% block main %}
+{% block main_banner %}
+    <!-- mainBannerTop DIV 开始 -->
+      <div id="mainBannerTop">
+            <!--id=mainBannerTopIssue 发布框-->
+        <div id="mainBannerTopIssue">
+          <!--id=mainBannerTopIssuePoint 提示-->
+          <div id="mainBannerTopIssuePoint">Microblog
+            </div>
+            <div style="float:right;">share your feeling<font id="counter1"></font>
+            </div>
+            <form action="" method="post" id="">
+              <div id="mainBannerTopIssueForm">
+                    <!--id="mainBannerTopIssueFrame-->
+                    <div id="mainBannerTopIssueFrame">
+                      <textarea placeholder="What is on your mind?" rows="4" class="Size" id="textfield2"  style="overflow:hidden;border:1px #0CF solid;"></textarea>
+                    </div>
+                    <!--id="mainBannerTopIssueInsert 插入链接-->
+                <div id="mainBannerTopIssueInsert">
+                    <!--4个小div-->
+                </div>
+                  <!--确认发布-->
+                <div id="mainBannerTopIssueSure">
+                  <div id="mainBannerTopIssueSure2"> 
+                    <input type="button" id="submit_microblog" value="Submit" style=" border:none" />
+                  </div>
+                </div>
+              </div>
+            </form> 
+          </div>
+          <!-- 表情DIV -->
+        </div> 
+            
+            <!--id="mainBannerTitle 首页-->
+            <div id="mainBannerTitle">
+                <!--id="mainBannerTitleWord"-->
+                <div id="mainBannerTitleWord"><b>Home</b>
+                </div>
+                <!--首页提示与隐藏-->
+                <div id="mainBannerTitleWord2">
+                        <input type="checkbox" name="checkbox" id="checkbox" onclick="tdImgState()"/>
+                        隐藏图片 
+                </div>
+            </div> 
+            <!--不同人的内容-->
+            <div id="mainBannerContent">
+                <div class="home_microblogs">
+                    
+                </div>
 
-{% endblock main %}
+                  <!--个人展示-->
+                <div class="stateShow">
+                  <div class="stateShowWord">
+                    <table width="450" border="0" cellpadding="0" cellspacing="0" class="stateTable">
+                      <tr>
+                        <td width="70" align="center" valign="top"><a href="#"><img src="/static/images/garena_avatar.png" width="54" height="54" alt="" title="" /></a></td>
+                        <td width="380"><a href="#">Happy_Microblog</a><img src="images/1.gif" align="absmiddle" style="border:none;" />
+                        A teenage girl in Oregon has tested positive for bubonic plague, state health officials say.
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                   <div class="stateImgShow"></div>            
+                  <div class="stateShowtime"> 07月31日 08:02 </div>
+                  <div class="stateOp"><a onclick="reXianShi(this)" class="opState">回复</a><a class="opState">转发</a><a class="opState" onclick="delState(this)">删除</a></div>
+                  <div class="huifu"></div>
+                </div>
+                 <!--个人展示结束-->
+                 <!--个人展示-->
+                <div class="stateShow"  >
+                  <div class="stateShowWord">
+                    <table width="450" border="0" cellpadding="0" cellspacing="0" class="stateTable">
+                      <tr>
+                        <td width="70" align="center" valign="top"><a href="#"><img src="/static/images/garena_avatar.png" width="54" height="54" alt="" title="" /></a></td>
+                        <td width="380"><a href="#">不明真真相</a><img src="images/1.gif" align="absmiddle" style="border:none;" />你我都是这“奇迹”国中的一员花销。 </td>
+                      </tr>
+                    </table>
+                  </div>
+                   <div class="stateImgShow">
+                     <img src="images/SCT.gif" width="34" height="166" alt="" title="" /></div>            
+                  <div class="stateShowtime"> 07月31日 08:02 </div>
+                  <div class="stateOp"><a onclick="reXianShi(this)" class="opState">回复</a><a class="opState">转发</a><a class="opState" onclick="delState(this)">删除</a></div>
+                   <div class="huifu"></div>
+                </div>
+                 <!--个人展示结束-->
+                  <!--个人展示-->
+                <div class="stateShow"  >
+                  <div class="stateShowWord">
+                    <table width="450" border="0" cellpadding="0" cellspacing="0" class="stateTable">
+                      <tr>
+                        <td width="70" align="center" valign="top"><a href="#"><img src="images/mainBannerContent2People3Img.gif.gif" width="54" height="54" alt="" title="" /></a></td>
+                        <td width="380"><a href="#">经典微博语录</a><img src="images/1.gif" align="absmiddle" style="border:none;" />人民网总裁兼总编辑廖玒分析官民舆论场的对峙和分歧越来越大原因：“底层社会上升通道堵塞、中产阶层的被剥夺感、富裕阶层的移民倾向、特殊利益集团的末世情结”“民众的无力感和玉石俱焚的愤懑”。据廖玒7月27日上午在中国传媒领袖大堂上的演讲。 </td>
+                      </tr>
+                    </table>
+                  </div>
+                   <div class="stateImgShow">
+                     <img src="images/people2.gif" /></div>            
+                  <div class="stateShowtime"> 07月31日 08:02 </div>
+                  <div class="stateOp"><a onclick="reXianShi(this)" class="opState">回复</a><a class="opState">转发</a><a class="opState" onclick="delState(this)">删除</a></div>
+                   <div class="huifu"></div>
+                </div>
+                 <!--个人展示结束-->
+                 <!--个人展示-->
+                <div class="stateShow"  >
+                  <div class="stateShowWord">
+                    <table width="450" border="0" cellpadding="0" cellspacing="0" class="stateTable">
+                      <tr>
+                        <td width="70" align="center" valign="top"><a href="#"><img src="/static/images/garena_avatar.png" width="54" height="54" alt="" title="" /></a></td>
+                        <td width="380"><a href="#">漂流瓶</a><img src="images/1.gif" align="absmiddle" style="border:none;" />在德国达豪集中营入口处，刻着17世纪一位诗人的警示名言："当一个政权开始烧书的时候，若不加以阻止，它的下一步就要灭口!"埃德蒙.柏克说过："邪恶盛行的唯一条件，是善良的沉默。" </td>
+                      </tr>
+                    </table>
+                  </div>
+                   <div class="stateImgShow"></div>            
+                  <div class="stateShowtime"> 07月31日 08:02 </div>
+                  <div class="stateOp"><a onclick="reXianShi(this)" class="opState">回复</a><a class="opState">转发</a><a class="opState" onclick="delState(this)">删除</a></div>
+                   <div class="huifu"></div>
+                </div>
+                 <!--个人展示结束-->
+                  <!--个人展示-->
+                <div class="stateShow"  >
+                  <div class="stateShowWord">
+                    <table width="450" border="0" cellpadding="0" cellspacing="0" class="stateTable">
+                      <tr>
+                        <td width="70" align="center" valign="top"><a href="#"><img src="images/state2.jpg" alt="" width="48" height="48" /></a></td>
+                        <td width="380"><a href="#">家人杂志</a><img src="images/1.gif" align="absmiddle" style="border:none;" />分享图片:二十多年前,林青霞和邓丽君在法国戛纳.当时最红的两位女子定格在一起,她们陪伴多少人走过那段流金岁月? </td>
+                      </tr>
+                    </table>
+                  </div>
+                   <div class="stateImgShow">
+                     <img src="images/state3.jpg" /></div>            
+                  <div class="stateShowtime"> 07月31日 08:02 </div>
+                  <div class="stateOp"><a onclick="reXianShi(this)" class="opState">回复</a><a class="opState">转发</a><a class="opState" onclick="delState(this)">删除</a></div>
+                   <div class="huifu"></div>
+                </div>
+                 <!--个人展示结束-->
+                
+                    <div id="recieve">
+                        <div id="ff" style="float:left;"><font style="font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;回&nbsp;&nbsp;复</font></div>
+                        <div id="left" style="float:right; margin-top:10px; margin-right:10px;">您还有可以输入<font id="counter2" >140</font>字！&nbsp;&nbsp;&nbsp;<img src="images/hongcha1.gif" alt="" width="14" height="13" align="absmiddle" title="" onclick="windowClose()" /></div><br />
+                        <div id="wt">
+                        <form action="" method="get">
+                          <textarea name="ta" cols="" rows="" id="ta1" onkeyup="calNum(this,counter2,1)" style="overflow:hidden;border:1px #0CF solid;">
+                            </textarea>
+                          <br />
+                            <div style="float:right; margin-right:25px; margin-top:7px; text-align:right;">
+                                <!--&nbsp;&nbsp;<input type="checkbox" name="引用原微博" value="复选框"/>&nbsp;&nbsp;引用原微博-->
+                                <input name="" type="button" value=" 回 复 " id="sub1" onclick="submitRstate()" />
+                            </div>
+                        </form>           
+                        </div> 
+                        <!-- 回复DIV 结束 -->
+                  </div>
+            </div>
+{% endblock main_banner %}
