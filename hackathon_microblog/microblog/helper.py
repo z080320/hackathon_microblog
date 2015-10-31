@@ -28,7 +28,7 @@ def post_microblog(uid, blog):
 def get_blog_comments(uid, blog_id):
     try:
         blog = models.Microblog.objects.get(pk=blog_id)
-        comments = models.Comment.objects.filter(comment_blog=blog).order_by('parent__pk', '-post_time')[:100]
+        comments = models.Comment.objects.filter(comment_blog=blog).order_by('post_time')[:100]
 
         return comments
 
@@ -57,4 +57,3 @@ def create_blog_comment(uid, blog_id, parent, comment):
         return False
 
         
-

@@ -33,18 +33,46 @@ HACKATHON_MICROBLOG = {
                 </div>\
                  <!--个人展示结束-->',
 
+    comment_template: '<div class="comment">\
+        <div class="username"></div>\
+        <div class="replyTo"></div>\
+        <div class="content"></div>\
+        <div class="comment_time"></div>\
+    </div>',
+
+    load_blog: function(blog, $target_div){
+        var that = this;
+        var blog_tmpl = $(that.microblog_template);
+        blog_tmpl.find('.microblog').html(blog.blog).end()
+                 .find('.stateShowtime').html(blog.blog_post_time).end()
+                 .find('.user').html('Garena '+ blog.uid);
+
+        $.get('/comments/'+ blog.id +'/', function(comments){
+            $target_region = blog_tmpl.find('.huifu');
+            $.each(comments, function(index, comment){
+                var comment_tmpl = $(that.comment_template);
+                var replyTo = '';
+                if (comment.parent_uid){
+                    replyTo = 'Reply to Garena ' + comment.parent_uid;
+                }
+                comment_tmpl.find('.username').html('Garena ' + comment.uid).end()
+                            .find('.replyTo').html(replyTo).end()
+                            .find('.content').html(comment.blog).end()
+                            .find('.comment_time').html(comment.blog_post_time);
+                comment_tmpl.appendTo($target_region);
+            });
+        });
+        
+        blog_tmpl.appendTo($target_div);
+    },
+
     load_home_blogs: function(){
         var that = this,
             home_microblogs = $('.home_microblogs');
         home_microblogs.html('');
         $.get('/home/', function(blogs){
             $.each(blogs, function(index, blog){
-                var blog_tmpl = $(that.microblog_template);
-                blog_tmpl.find('.microblog').html(blog.blog).end()
-                         .find('.stateShowtime').html(blog.post_time).end()
-                         .find('.user').html('Garena '+ blog.uid);
-                
-                blog_tmpl.appendTo(home_microblogs);
+                that.load_blog(blog, home_microblogs);
             });
         });
     },
